@@ -1,0 +1,14 @@
+.venv
+node_modules
+.git
+data
+docs
+samples
+.env
+.env.*
+backend/tests
+backend/migrations
+.pnpm-store
+__pycache__
+*.pyc
+*.tsbuildinfo

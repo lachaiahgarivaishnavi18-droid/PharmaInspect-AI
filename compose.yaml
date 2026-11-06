@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["inspection-data:/app/data"]
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-research-only}
+      REVIEWER_PASSWORD: ${REVIEWER_PASSWORD:-review-only}
+      SESSION_SECRET: ${SESSION_SECRET:-local-research-change-before-sharing}
+volumes:
+  inspection-data:

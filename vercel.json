@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
+  "regions": [
+    "bom1"
+  ],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 300,
+      "excludeFiles": "{.venv/**,node_modules/**,data/**,docs/**,samples/**,backend/tests/**,backend/migrations/**,**/tests/**,**/__pycache__/**,**/*.pyc}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/((?!api(?:/|$)|assets/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "installCommand": "pnpm install --frozen-lockfile"
+}
